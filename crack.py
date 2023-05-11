@@ -14,7 +14,7 @@ def get_shodan_data_xui(): #Get data from shodan(query is XUI)
             data_list.append(data)
     for data in data_list:
 #         print(f"IP: {data['ip']}:{data['port']}")
-        ips = f'{data['ip']}:{data['port']}'.replace("'",'')
+        ips = f"{data['ip']}:{data['port']}".replace("'",'')
         try:
             r = req.get(ips)
             if r.status_code == 200:
