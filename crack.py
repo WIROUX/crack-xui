@@ -1,24 +1,25 @@
-import shodan
-import re
-import requests as req
-regex = (r"\d")
+import shodan,re,requests as req
+
+# regex = (r"\d")
 def get_shodan_data_xui(): #Get data from shodan(query is XUI)
     api , data_list= shodan.Shodan("FBCWUSFYaT6Jo6eQAzkzVK5PKvkbQeDh") ,[]
     result = api.search("xui")
     for device in result['matches']:
         if 'HTTP/1.1 200 OK' in device['data']:
             data = {
+                'port': device['port'],
                 'ip': device['ip_str'],
-                'hostname': device['hostnames'][0] if device['hostnames'] else '',
+#                 'hostname': device['hostnames'][0] if device['hostnames'] else '',
             }
             data_list.append(data)
     for data in data_list:
-        ip_all = [(f"IP: {data['ip']}")]
-        for i in range (0,65537):
-            try:
-                r = req.get(data['ip']+f':{i}')
-                if r.status_code == 200:
-                    print(data['ip'])
-            except:
-                pass
+#         print(f"IP: {data['ip']}:{data['port']}")
+        ips = f'{data['ip']}:{data['port']}'.replace("'",'')
+        try:
+            r = req.get(ips)
+            if r.status_code == 200:
+                print(ips)
+        except:
+            print('not work:',ips)
+
         # ip = data['ip']+':54321'
