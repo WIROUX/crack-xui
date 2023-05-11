@@ -18,8 +18,8 @@ def get_shodan_data_xui(): #Get data from shodan(query is XUI)
         try:
             r = req.get(ips)
             if r.status_code == 200:
-                print(ips)
+                print('not work: ',ips)
         except:
-            print('not work:',ips)
+            print(ips)
 
         # ip = data['ip']+':54321'
