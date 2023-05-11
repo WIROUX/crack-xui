@@ -14,10 +14,11 @@ def get_shodan_data_xui(): #Get data from shodan(query is XUI)
             data_list.append(data)
     for data in data_list:
         ip_all = [(f"IP: {data['ip']}")]
-        ip = data['ip']+':54321'
-        try:
-            r = req.get(ip)
-            if r.status_code == 200:
-                print(ip)
-        except:
-            print('not work:',ip)
+        for i in range (0,65537):
+            try:
+                r = req.get(data['ip']+f':{i}')
+                if r.status_code == 200:
+                    print(data['ip'])
+            except:
+                pass
+        # ip = data['ip']+':54321'
