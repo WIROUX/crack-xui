@@ -1,2 +1,3 @@
 # crack-xui
-```find xui panel and fuck it```
+this program find live xui and fuck it
+```write by WAX and GRIX```
