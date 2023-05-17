@@ -229,13 +229,17 @@ try:
         cross()
 except KeyboardInterrupt as e:
     clear()
-    print(e)
+#     print(e)
     print(good,"My Channel SADWX_TM_CH in telegran")
 except EOFError as e:
     clear()
-    print(e)
+#     print(e)
     print(good,"My Channel SADWX_TM_CH in telegran")
 except Exception as e:
     clear()
-    print(e)
+    if e=="('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))":
+        print(err+"Password or User is wrong pls use another passlist/userlist for crack")
+    else:
+        pass
+#     print(e)
     print(good,"My Channel SADWX_TM_CH in telegran")
