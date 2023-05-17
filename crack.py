@@ -230,11 +230,11 @@ try:
 except KeyboardInterrupt as e:
     clear()
 #     print(e)
-    print(good,"My Channel SADWX_TM_CH in telegran")
+    print(good,"My Channel SADWX_TM_CH in telegram")
 except EOFError as e:
     clear()
 #     print(e)
-    print(good,"My Channel SADWX_TM_CH in telegran")
+    print(good,"My Channel SADWX_TM_CH in telegram")
 except Exception as e:
     clear()
     if e=="('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))":
@@ -242,4 +242,4 @@ except Exception as e:
     else:
         pass
 #     print(e)
-    print(good,"My Channel SADWX_TM_CH in telegran")
+    print(good,"My Channel SADWX_TM_CH in telegram")
